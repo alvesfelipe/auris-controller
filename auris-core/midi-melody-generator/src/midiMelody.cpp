@@ -2,12 +2,12 @@
 
 MidiMelody::MidiMelody(){}
 
-string MidiMelody::melody_generator(string out_name, string audio_path, string out_paht){
+string MidiMelody::melody_generator(string out_name, string audio_path, string out_path){
 	
 	string returned, aux;
 
 	string lib_path = "cd ./lib/audio_to_midi_melodia-master && ";
-	string exec = "python audio_to_midi_melodia.py " + audio_path + " " + out_paht + out_name +
+	string exec = "python audio_to_midi_melodia.py " + audio_path + " " + out_path + out_name +
 	 			 ".mid" + " 60 --smooth 0.25 --minduration 0.1";
 
 	//system call
@@ -20,7 +20,7 @@ string MidiMelody::melody_generator(string out_name, string audio_path, string o
 	if(returned.find("Conversioncomplete.") != std::string::npos){
 		
 		cout << "SUCCESS" << endl;		   
-		return out_paht + out_name + ".mid";
+		return out_path + out_name + ".mid";
 	}
 
 	return "ERROR";	

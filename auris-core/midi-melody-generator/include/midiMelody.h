@@ -14,7 +14,7 @@ class MidiMelody{
 	public:	
 		MidiMelody();
 		
-		string melody_generator(string out_name, string audio_path, string out_paht);
+		string melody_generator(string out_name, string audio_path, string out_path);
 
 		~MidiMelody();
 };

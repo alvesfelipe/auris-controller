@@ -1,0 +1,18 @@
+&
+frequency
+&
+notetype
+&
+frequencyrange
+C 130
+C# 138
+D 146
+D# 155
+E 164
+F 174
+F# 185
+G 196
+G# 207
+A 220
+A# 233
+B 247
