@@ -19,6 +19,11 @@ MUSIC FOR DEAF uses a number of depenencies to work propetly:
 	* [NumPy & SciPy]
 	* [JAMS]
 
+* [Boost.Filesystem library]
+```sh
+sudo apt-get install libboost-filesystem-dev
+```
+
 ### Usage
 
 
@@ -32,3 +37,4 @@ MUSIC FOR DEAF uses a number of depenencies to work propetly:
 [midiutil]: <https://code.google.com/p/midiutil/>
 [NumPy & SciPy]: <http://www.scipy.org/>
 [JAMS]: <https://github.com/marl/jams>
+[Boost.Filesystem library]: <http://www.boost.org/doc/libs/1_37_0/libs/filesystem/doc/index.htm>
