@@ -59,9 +59,10 @@ bool PlayAuris::playAurisMelody(string aurs_file){
 
     //read Auris File with melody of music
     while(auris_f >> id >> time_on >> time_off >> intensity){
-    	sendSignal(atoi(id.c_str()), atoi(intensity.c_str()), atoi(time_off.c_str()) - atoi(time_on.c_str()), fd);
-    	/*cout << "ID: " << id << " Intensity: " << intensity << " Duration: " 
-    	<< atoi(time_off.c_str()) - atoi(time_on.c_str()) << endl;*/
+    	//sendSignal(atoi(id.c_str()), atoi(intensity.c_str()), 
+    	//atoi(time_off.c_str()) - atoi(time_on.c_str()), fd);
+    	cout << "ID: " << id << " Intensity: " << intensity << " Duration: " 
+    	<< atoi(time_off.c_str()) - atoi(time_on.c_str()) << endl;
     }
 
     auris_f.close();
