@@ -1,7 +1,7 @@
 CXX=g++
 INC_AURIS=-I include/
 PATH_SRC=src/
-LDFLAGS=-lboost_system -lboost_filesystem
+LDFLAGS=-lboost_system -lboost_filesystem -std=c++11
 INC_PSTREAMS=-I ../lib/pstreams-0.8.1
 
 all: auris_stream.bin

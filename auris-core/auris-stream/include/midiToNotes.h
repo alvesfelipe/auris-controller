@@ -15,6 +15,7 @@ class MidiToNotes{
 	public:	
 		MidiToNotes();
 		
+		//convert melody midi file to notes/duration file
 		string midiNotes(string out_name, string midi_path, string out_path);
 
 		~MidiToNotes();

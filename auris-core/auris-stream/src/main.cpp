@@ -5,20 +5,19 @@ int main(){
 
 	MidiToNotes *mtn = new MidiToNotes();
 	AurisStream *as = new AurisStream();
-	Notes *nt = new Notes();
-
-	list<Motor *> motor;
 	
 	char const* tmp_home = getenv("HOME");
 	string home(tmp_home);
 
-	cout << mtn->midiNotes("midi_notes", home + "/midiMelody.mid", home + "/") << endl;
-	cout << as->setMotorList(home + "/music_for_deaf/auris-core/auris-stream/file/configure.txt", 
-								home + "/midi_notes.txt", &motor, nt) << endl;
+	mtn->midiNotes("midi_notes", home + "/midiMelody.mid", home + "/");
+	/*as->setMotorList(home + "/music_for_deaf/auris-core/auris-stream/file/configure.txt", 
+								home + "/midi_notes.txt", 0);*/
+	as->streamAurisGenerate("auris_stream", home + "/music_for_deaf/auris-core/auris-stream/file/configure.txt",
+						   home + "/midi_notes.txt", 0, home + "/");
 
-	as->printMotorList(&motor);
+	as->printMotorList(&as->allRequisitions);
+	as->printMusicNotes();
 
-	delete nt;
 	delete as;
 	delete mtn;
 	return 0;
