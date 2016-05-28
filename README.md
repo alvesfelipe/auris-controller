@@ -21,7 +21,7 @@ MUSIC FOR DEAF uses a number of depenencies to work propetly:
 
 * [Boost.Filesystem library]
 ```sh
-sudo apt-get install libboost-filesystem-dev
+$ sudo apt-get install libboost-filesystem-dev
 ```
 
 ### Usage

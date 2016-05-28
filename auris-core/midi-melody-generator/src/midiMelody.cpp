@@ -2,7 +2,7 @@
 
 MidiMelody::MidiMelody(){}
 
-string MidiMelody::melody_generator(string out_name, string audio_path, string out_path){
+string MidiMelody::melodyGenerator(string out_name, string audio_path, string out_path){
 	
 	string returned, aux;
 
