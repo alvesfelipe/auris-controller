@@ -1,6 +1,6 @@
 # MUSIC FOR DEAF
 
-This project promotes a translation of a .wav file to a new format (Auris Melody) to be interpreted by a haptics interface, in order to promote a better music experience for deaf users.
+This project promotes a translation of a .wav file to a new format (Auris Stream) to be interpreted by a haptics interface, in order to promote a better music experience for deaf users.
 
 The project use the [audio_to_midi_melodia] script for extract the melody notes from an audio file and export them to MIDI.
 
