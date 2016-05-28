@@ -18,7 +18,7 @@ class AurisStream{
 		list<Motor *> allRequisitions;
 		vector<string> notesContent;
 		
-		//set list of motor with all informations
+		//set list of motor with all informations of configurations archive and Midi Notes file
 		bool setMotorList(string config_path, string midi_notes, int id_option);
 
 		//generate file with auris format

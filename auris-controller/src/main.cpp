@@ -25,6 +25,10 @@ int main(){
 			ga->generateAurisStream();
 		}
 
+		if(op == 3){
+			ga->generatePlayAuris();
+		}
+
 		if(op == -1){
 			break;
 		}

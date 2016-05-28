@@ -71,3 +71,29 @@ void GenerateArtefacts::generateAurisStream(){
 	delete mtn;
 }
 
+void GenerateArtefacts::generatePlayAuris(){
+	PlayAuris *pl = new PlayAuris();
+	ListFiles *lf = new ListFiles();
+
+	char const* tmp_home = getenv("HOME");
+	string home(tmp_home);
+	int choose;
+
+	vector<string> ret;
+
+	cout << "Chose a file to Play Auris Melody: " << endl;
+	lf->listExtension(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies", ".txt", &ret);
+
+	cin.clear();
+	if(cin >> choose){
+		string name(ret.at(choose));
+
+		pl->playAurisMelody(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/" + name);
+	}
+
+	ret.clear();
+
+	delete lf;
+	delete pl;
+}
+

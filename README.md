@@ -23,6 +23,8 @@ MUSIC FOR DEAF uses a number of depenencies to work propetly:
 ```sh
 $ sudo apt-get install libboost-filesystem-dev
 ```
+If you whant to play Auris midi in a haptics interface, you will need:
+* [wiringpi]
 
 ### Complie and run Music For Deaf
 
@@ -49,3 +51,4 @@ $ make run
 [NumPy & SciPy]: <http://www.scipy.org/>
 [JAMS]: <https://github.com/marl/jams>
 [Boost.Filesystem library]: <http://www.boost.org/doc/libs/1_37_0/libs/filesystem/doc/index.htm>
+[wiringpi]: <http://wiringpi.com/download-and-install/>
