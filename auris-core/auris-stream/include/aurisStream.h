@@ -1,12 +1,12 @@
 #ifndef _AURISSTREAM_H
 #define _AURISSTREAM_H
 
-#include "midiToNotes.h"
 #include "motor.h"
 #include "notes.h"
 #include <fstream>
 #include <algorithm>
 #include <string>
+#include <list>
 
 using namespace std;
 

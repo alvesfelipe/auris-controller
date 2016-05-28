@@ -6,8 +6,12 @@ string MidiMelody::melodyGenerator(string out_name, string audio_path, string ou
 	
 	string returned, aux;
 
-	string lib_path = "cd ./lib/audio_to_midi_melodia-master && ";
-	string exec = "python audio_to_midi_melodia.py " + audio_path + " " + out_path + out_name +
+	char const* tmp_home = getenv("HOME");
+	string home(tmp_home);
+
+
+	string lib_path = "cd " + home + "/music_for_deaf/auris-core/midi-melody-generator/lib/audio_to_midi_melodia-master && ";
+	string exec = "python -W ignore audio_to_midi_melodia.py " + audio_path + " " + out_path + out_name +
 	 			 ".mid" + " 60 --smooth 0.25 --minduration 0.1";
 
 	//system call
