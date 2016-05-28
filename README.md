@@ -24,8 +24,19 @@ MUSIC FOR DEAF uses a number of depenencies to work propetly:
 $ sudo apt-get install libboost-filesystem-dev
 ```
 
-### Usage
+### Complie and run Music For Deaf
 
+For compile and run Music For Deaf code run:
+
+```sh
+$ cd $(HOME)/MUSIC_DEAF/music_for_deaf/auris-controller
+```
+```sh
+$ make
+```
+```sh
+$ make run
+```
 
 ### Contributors
 * Felipe Alves Araújo felipealves@lavid.ufpb.br
