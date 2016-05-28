@@ -2,15 +2,16 @@
 
 MidiMelody::MidiMelody(){}
 
-string MidiMelody::melodyGenerator(string out_name, string audio_path, string out_path){
+bool MidiMelody::melodyGenerator(string out_name, string audio_path, string out_path){
 	
 	string returned, aux;
 
 	char const* tmp_home = getenv("HOME");
 	string home(tmp_home);
 
+	cout << "Processing..." << endl;
 
-	string lib_path = "cd " + home + "/music_for_deaf/auris-core/midi-melody-generator/lib/audio_to_midi_melodia-master && ";
+	string lib_path = "cd " + home + "/MUSIC_DEAF/music_for_deaf/auris-core/midi-melody-generator/lib/audio_to_midi_melodia-master && ";
 	string exec = "python -W ignore audio_to_midi_melodia.py " + audio_path + " " + out_path + out_name +
 	 			 ".mid" + " 60 --smooth 0.25 --minduration 0.1";
 
@@ -24,10 +25,10 @@ string MidiMelody::melodyGenerator(string out_name, string audio_path, string ou
 	if(returned.find("Conversioncomplete.") != std::string::npos){
 		
 		cout << "SUCCESS" << endl;		   
-		return out_path + out_name + ".mid";
+		return true;
 	}
 
-	return "ERROR";	
+	return false;	
 }
 
 MidiMelody::~MidiMelody(){}

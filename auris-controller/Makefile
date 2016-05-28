@@ -11,5 +11,5 @@ all: auris_controller.bin
 auris_controller.bin:
 	@$(CXX) $(INC_AURIS_CONT) $(INC_AURIS_CORE) $(INC_PSTREAMS) $(PATH_SRC) $(SRC_CORE) -o auris_controller.out $(LDFLAGS)
 
-test:
+run:
 	@./auris_controller.out

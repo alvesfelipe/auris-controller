@@ -2,25 +2,28 @@
 
 MidiToNotes::MidiToNotes(){}
 
-string MidiToNotes::midiNotes(string out_name, string midi_path, string out_path){
+bool MidiToNotes::midiNotes(string out_name, string midi_path, string out_path){
 	
 	string returned, aux;
 
 	char const* tmp_home = getenv("HOME");
 	string home(tmp_home);
 
-	string lib_path = "cd " + home + "/music_for_deaf/auris-core/auris-stream/lib/midifile/bin && ";
+	cout << "Processing..." << endl;
+	
+	string lib_path = "cd " + home + "/MUSIC_DEAF/music_for_deaf/auris-core/auris-stream/lib/midifile/bin && ";
 	string exec = "./midi2notes " + midi_path + " > " + out_path + out_name + ".txt";
 
 	if (!boost::filesystem::exists(midi_path)){
   		cout << "Can't find midi file!" << std::endl;
-		return "ERROR";
+		return false;
 	}
 
 	//system call to midifile lib
 	redi::ipstream in(lib_path + exec);   
 	
-	return out_path + out_name + ".txt";
+	cout << "SUCCESS" << endl;
+	return true;
 }
 
 
