@@ -18,11 +18,14 @@ class AurisStream{
 		list<Motor *> allRequisitions;
 		vector<string> notesContent;
 		
+		//set list of motor with all informations
 		bool setMotorList(string config_path, string midi_notes, int id_option);
 
+		//generate file with auris format
 		bool streamAurisGenerate(string out_name, string config_path, string midi_notes, 
                                  int id_option, string out_path);
 
+		//set ids as default, without configuration file
 		void setDefaultIds();
 
 		void printMotorList(list<Motor *> *motor);

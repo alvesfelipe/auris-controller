@@ -20,7 +20,7 @@ class Notes{
 		vector<string> notes;
 
 		//set notes midi
-		void setNotesMidi(map<string, vector <int> > *notesMidi, vector<string> *notes);
+		void setNotesMidi();
 
 		//constructor
 		Notes();	

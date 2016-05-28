@@ -14,7 +14,7 @@ string MidiToNotes::midiNotes(string out_name, string midi_path, string out_path
 		return "ERROR";
 	}
 
-	//system call
+	//system call to midifile lib
 	redi::ipstream in(lib_path + exec);   
 	
 	return out_path + out_name + ".txt";

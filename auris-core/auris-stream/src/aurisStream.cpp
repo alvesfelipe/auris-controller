@@ -14,7 +14,7 @@ bool AurisStream::setMotorList(string config_path, string midi_notes, int id_opt
 
 	int on, off, midi;
 	
-	nt->setNotesMidi(&nt->notesMidi, &nt->notes);
+	nt->setNotesMidi();
 
 	if(!config_file.is_open()){
 		config_file.clear();
@@ -38,7 +38,8 @@ bool AurisStream::setMotorList(string config_path, string midi_notes, int id_opt
 
     //read midi file with melody of music
     while(midi_file >> midi >> on >> off){
-    	for(map<string, vector<int> >::iterator it=nt->notesMidi.begin(); it!=nt->notesMidi.end(); ++it){
+    	//scans the map and each of its vectors to set notes of motors
+        for(map<string, vector<int> >::iterator it=nt->notesMidi.begin(); it!=nt->notesMidi.end(); ++it){
 			for(vector<int>::iterator it2=it->second.begin(); it2!=it->second.end(); ++it2){
 				if(*it2 == midi){
 					this->allRequisitions.push_back(new Motor(midi, -1, "", it->first, on, off, -1));	
@@ -57,7 +58,7 @@ bool AurisStream::setMotorList(string config_path, string midi_notes, int id_opt
 
     //read configuration file
     while(config_file >> column1 >> column2){
-    	//set id and type of motor by configure archive    	
+    	//set id and type of motor by configure archive if id_option=1   	
     	if(flag1 == true && column2.compare("frequencyrange") != 0){	
     		for(list<Motor *>::iterator it=this->allRequisitions.begin(); it != this->allRequisitions.end(); ++it){
     			if((*it)->getNote().compare(column2) == 0){
@@ -102,7 +103,7 @@ bool AurisStream::streamAurisGenerate(string out_name, string config_path, strin
     }
 
     setMotorList(config_path, midi_notes, id_option);
-
+    //write list of motors in archive
     for(list<Motor *>::iterator it=this->allRequisitions.begin(); it != this->allRequisitions.end(); ++it){
         out_stream << std::to_string((*it)->getIdMotor()) + " " + to_string((*it)->getTimeOn()) +  " " + 
                       to_string((*it)->getTimeOff()) + " " + to_string((*it)->getVibrationLevel()) + "\n";
@@ -115,7 +116,7 @@ bool AurisStream::streamAurisGenerate(string out_name, string config_path, strin
 
 void AurisStream::setDefaultIds(){
     int cont = 0;    
-    //set ids default
+    //scans the motor list and notes presents on melody for set each id motor automatically
     for(list<Motor *>::iterator it=this->allRequisitions.begin(); it != this->allRequisitions.end(); ++it){
         for(vector<string>::iterator it2=this->notesContent.begin(); it2 != this->notesContent.end(); ++it2){
             if((*it)->getNote() == (*it2)){
