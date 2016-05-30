@@ -6,37 +6,43 @@ int main(){
 
 	string ok;
 	int op;
+	string ch;
 
 	while(1){
 		cout << "Choose one what you whant to do:" << endl;
 		cout << "[1] - Generate MIDI Melody" << endl;
 		cout << "[2] - Generate Auris Stream" << endl;
 		cout << "[3] - Play Auris Stream" << endl;
-		cout << "[-1] - Out" << endl;
+		cout << "[0] - Out" << endl;
 		
 		cin.clear();
 		cin >> op;
 
 		if(op == 1){
+			system("clear");
 			ga->generateMidiMelody();
 		}
 		
 		if(op == 2){
+			system("clear");
 			ga->generateAurisStream();
 		}
 
 		if(op == 3){
+			system("clear");
 			ga->generatePlayAuris();
 		}
 
-		if(op == -1){
+		if(op == 0){
 			break;
 		}
 
 		cout << "Press any key and ENTER" << endl;
-		cin.clear();
-		cin>>op;
-		system("clear");
+		cin>>ch;
+		if(ch.compare("\n")){
+			cout << "entrouuuuuu";
+			system("clear");
+		}
 	}
 
 	return 0;
