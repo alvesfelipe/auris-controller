@@ -20,7 +20,7 @@ class PlayAuris{
 		PlayAuris();
 
 		//This method send signal to Pins of Rasberry Pi
-		void sendSignal(int motor, int intensity, int duration, int id_pin);
+		void sendSignal(string information, int id_pin);
 
 		//This method read a Auris Stream file and send signal to Arduino from Raspberry Pi2
 		bool playAurisMelody(string aurs_file);

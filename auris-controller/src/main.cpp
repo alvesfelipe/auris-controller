@@ -9,7 +9,7 @@ int main(){
 	string ch;
 
 	while(1){
-		cout << "Choose one what you whant to do:" << endl;
+		cout << "Choose what you want to do:" << endl;
 		cout << "[1] - Generate MIDI Melody" << endl;
 		cout << "[2] - Generate Auris Stream" << endl;
 		cout << "[3] - Play Auris Stream" << endl;
@@ -40,7 +40,6 @@ int main(){
 		cout << "Press any key and ENTER" << endl;
 		cin>>ch;
 		if(ch.compare("\n")){
-			cout << "entrouuuuuu";
 			system("clear");
 		}
 	}
