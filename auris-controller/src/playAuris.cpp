@@ -26,6 +26,7 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
 	string id, time_on, time_off, intensity;\
 	SendSignalBeagle *ssb = new SendSignalBeagle();
 
+	ssb->setGpioPins();
 	//test open serial Rasp 
 	/*if((fd = serialOpen("/dev/ttyAMA0",9600)) < 0){
 
@@ -56,9 +57,9 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
     	duration = atoi(time_off.c_str()) - atoi(time_on.c_str());
     	
     	if(op == 0){
-	    	/*sendSignalRasp(id, fd);
+	    	sendSignalRasp(id, fd);
 	    	sendSignalRasp(intensity, fd);
-	    	sendSignalRasp(to_string(duration), fd);*/
+	    	sendSignalRasp(to_string(duration), fd);
     	}
 
     	if(op == 1){
