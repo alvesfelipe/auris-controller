@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include "sendsignalbeagle.h"
+#include "timer.h"
 
 using namespace std;
 using std::stringstream;

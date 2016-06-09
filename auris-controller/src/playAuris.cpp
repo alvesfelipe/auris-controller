@@ -24,9 +24,13 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
 
 	int fd, duration;
 	string id, time_on, time_off, intensity;\
+	
 	SendSignalBeagle *ssb = new SendSignalBeagle();
+	Timer *tm = new Timer();
 
+	//set pins GPIO
 	ssb->setGpioPins();
+
 	//test open serial Rasp 
 	/*if((fd = serialOpen("/dev/ttyAMA0",9600)) < 0){
 
@@ -51,6 +55,9 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
 	    return false;
     }
 
+    //start the clock
+	tm->startClock();
+
     //read Auris File with melody of music
     while(auris_f >> id >> time_on >> time_off >> intensity){
 
@@ -63,8 +70,14 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
     	}
 
     	if(op == 1){
-    		ssb->setPinOn(ssb->getGpioPin(atoi(id.c_str())), duration);
-    		ssb->setPinOff(ssb->getGpioPin(atoi(id.c_str())));
+    		//waiting per clock
+    		while(1){
+	    		if(atoi(time_on.c_str()) == tm->timeClock()){
+	    			ssb->setPinOn(ssb->getGpioPin(atoi(id.c_str())), duration);
+	    			ssb->setPinOff(ssb->getGpioPin(atoi(id.c_str())));
+	    			break;
+	    		}
+	    	}	
     	}
     	
     	cout << "ID: " << id << " Intensity: " << intensity << " Duration: " 
@@ -74,6 +87,7 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
     auris_f.close();
 
     delete ssb;
+    delete tm;
 	return true;
 }
 
