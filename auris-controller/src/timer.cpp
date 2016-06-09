@@ -13,7 +13,7 @@ void Timer::startClock(){
 int Timer::timeClock(){
     
     int result;
-    result = (clock() - this->timerMillis) / (int)(CLOCKS_PER_SEC / 1000);
+    result = (clock() - this->timerMillis) / (int)(CLOCKS_PER_SEC / 10500);
   
     return result; 
 }
