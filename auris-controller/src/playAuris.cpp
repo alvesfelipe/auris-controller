@@ -2,7 +2,7 @@
 
 PlayAuris::PlayAuris(){}
 
-void PlayAuris::sendSignal(string information, int id_pin){
+void PlayAuris::sendSignalRasp(string information, int id_pin){
 
 	char send[100], d;
 	memcpy(&send, information.c_str(), 100);
@@ -16,12 +16,18 @@ void PlayAuris::sendSignal(string information, int id_pin){
 	}while(d != '\n');
 }
 
-bool PlayAuris::playAurisMelody(string aurs_file){
+void PlayAuris::sendSignalBeagle(int id, int duration){
+
+}
+
+bool PlayAuris::playAurisMelody(string aurs_file, int op){
 
 	int fd, duration;
-	string id, time_on, time_off, intensity;
+	string id, time_on, time_off, intensity;\
+	SendSignalBeagle *ssb = new SendSignalBeagle();
 
-/*	if((fd = serialOpen("/dev/ttyAMA0",9600)) < 0){
+	//test open serial Rasp 
+	/*if((fd = serialOpen("/dev/ttyAMA0",9600)) < 0){
 
 		fprintf(stderr,"Unable to open serial device: %s\n",strerror(errno));
 		return false;
@@ -30,8 +36,8 @@ bool PlayAuris::playAurisMelody(string aurs_file){
 	if(wiringPiSetup() == -1){
 		fprintf(stdout, "Unable to start wiringPi: %s\n", strerror(errno));
 		return false;
-	}*/
-
+	}
+	*/
 	//open Auris File
 	ifstream auris_f(aurs_file.c_str());
 
@@ -46,10 +52,19 @@ bool PlayAuris::playAurisMelody(string aurs_file){
 
     //read Auris File with melody of music
     while(auris_f >> id >> time_on >> time_off >> intensity){
-    	/*sendSignal(id, fd);
-    	sendSignal(intensity, fd);
+
     	duration = atoi(time_off.c_str()) - atoi(time_on.c_str());
-    	sendSignal(to_string(duration), fd);*/
+    	
+    	if(op == 0){
+	    	/*sendSignalRasp(id, fd);
+	    	sendSignalRasp(intensity, fd);
+	    	sendSignalRasp(to_string(duration), fd);*/
+    	}
+
+    	if(op == 1){
+    		ssb->setPinOn(ssb->getGpioPin(atoi(id.c_str())), duration);
+    		ssb->setPinOff(ssb->getGpioPin(atoi(id.c_str())));
+    	}
     	
     	cout << "ID: " << id << " Intensity: " << intensity << " Duration: " 
     	<< atoi(time_off.c_str()) - atoi(time_on.c_str()) << endl;
@@ -57,6 +72,7 @@ bool PlayAuris::playAurisMelody(string aurs_file){
 
     auris_f.close();
 
+    delete ssb;
 	return true;
 }
 

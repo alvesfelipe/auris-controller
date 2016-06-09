@@ -10,6 +10,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <fstream>
+#include "sendsignalbeagle.h"
 
 using namespace std;
 using std::stringstream;
@@ -20,10 +21,14 @@ class PlayAuris{
 		PlayAuris();
 
 		//This method send signal to Pins of Rasberry Pi
-		void sendSignal(string information, int id_pin);
+		void sendSignalRasp(string information, int id_pin);
 
-		//This method read a Auris Stream file and send signal to Arduino from Raspberry Pi2
-		bool playAurisMelody(string aurs_file);
+		//This method send signal to Pins of Beagle Bone Black
+		void sendSignalBeagle(int id, int duration);
+
+		//This method read a Auris Stream file and send signal to (op==0)Raspberry Pi2
+		// or (op==1)BeagleBoneBlack
+		bool playAurisMelody(string aurs_file, int op);
 		
 		~PlayAuris();
 };

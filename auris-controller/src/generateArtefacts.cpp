@@ -88,7 +88,7 @@ void GenerateArtefacts::generatePlayAuris(){
 	if(cin >> choose){
 		string name(ret.at(choose));
 
-		pl->playAurisMelody(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/" + name);
+		pl->playAurisMelody(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/" + name, 1);
 	}
 
 	ret.clear();
