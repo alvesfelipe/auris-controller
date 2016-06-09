@@ -72,9 +72,12 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
     	if(op == 1){
     		//waiting per clock
     		while(1){
-	    		if(atoi(time_on.c_str()) == tm->timeClock()){
+    			cout << tm->timeClock() << endl;
+	    		if(atoi(time_on.c_str()) >= tm->timeClock() &&
+	    		 atoi(time_on.c_str()) <= tm->timeClock() + 50){
 	    			ssb->setPinOn(ssb->getGpioPin(atoi(id.c_str())), duration);
 	    			ssb->setPinOff(ssb->getGpioPin(atoi(id.c_str())));
+	    			
 	    			break;
 	    		}
 	    	}	
