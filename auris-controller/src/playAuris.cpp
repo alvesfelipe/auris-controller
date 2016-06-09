@@ -22,7 +22,7 @@ void PlayAuris::sendSignalBeagle(int id, int duration){
 
 bool PlayAuris::playAurisMelody(string aurs_file, int op){
 
-	int fd, duration;
+	int fd, duration, delay=0;
 	string id, time_on, time_off, intensity;\
 	
 	SendSignalBeagle *ssb = new SendSignalBeagle();
@@ -72,12 +72,14 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
     	if(op == 1){
     		//waiting per clock
     		while(1){
-    			cout << tm->timeClock() << endl;
-	    		if(atoi(time_on.c_str()) >= tm->timeClock() &&
-	    		 atoi(time_on.c_str()) <= tm->timeClock() + 50){
+    			//cout << tm->timeClock() + delay << endl;
+	    		if(atoi(time_on.c_str()) >= tm->timeClock() + delay &&
+	    		 atoi(time_on.c_str()) <= tm->timeClock() + delay + 50){
 	    			ssb->setPinOn(ssb->getGpioPin(atoi(id.c_str())), duration);
 	    			ssb->setPinOff(ssb->getGpioPin(atoi(id.c_str())));
-	    			
+	    			//cout << "time on: " << atoi(time_on.c_str()) << endl;
+	    			//usleep(duration);
+	    			delay += duration;
 	    			break;
 	    		}
 	    	}	
