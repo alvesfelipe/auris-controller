@@ -1,12 +1,25 @@
 #include "generateArtefacts.h"
 
-int main(){
+int main(int argc,char *argv[]){
 	
 	GenerateArtefacts *ga = new GenerateArtefacts();
 
 	string ok;
 	int op;
 	string ch;
+
+	if(argc == 2){
+		PlayAuris *pl = new PlayAuris();
+		char const* tmp_home = getenv("HOME");
+		string home(tmp_home);
+		string name(argv[1]);
+
+		cout << "------------>" << name << endl;
+		pl->playAurisMelody(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/" + name + ".txt", 1);
+
+		delete pl;
+		return 0;
+	}
 
 	while(1){
 		cout << "Choose what you want to do:" << endl;
