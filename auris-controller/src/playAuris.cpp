@@ -75,18 +75,21 @@ bool PlayAuris::playAurisMelody(string aurs_file, int op){
     			//cout << tm->timeClock() + delay << endl;
 	    		if(atoi(time_on.c_str()) >= tm->timeClock() + delay &&
 	    		 atoi(time_on.c_str()) <= tm->timeClock() + delay + 50){
+
 	    			ssb->setPinOn(ssb->getGpioPin(atoi(id.c_str())), duration);
 	    			ssb->setPinOff(ssb->getGpioPin(atoi(id.c_str())));
 	    			//cout << "time on: " << atoi(time_on.c_str()) << endl;
-	    			//usleep(duration);
+				
+				cout << "ID: " << id << " Intensity: " << intensity << " Duration: " 
+    				<< atoi(time_off.c_str()) - atoi(time_on.c_str()) << endl;
+	    			
+				usleep(duration);
 	    			delay += duration;
-	    			break;
+
+				break;
 	    		}
 	    	}	
     	}
-    	
-    	cout << "ID: " << id << " Intensity: " << intensity << " Duration: " 
-    	<< atoi(time_off.c_str()) - atoi(time_on.c_str()) << endl;
     }
 
     auris_f.close();
