@@ -28,6 +28,9 @@ class SendSignalBeagle{
 
 		//Function for set off pin
 		void setPinOff(int gpioPin);
+		
+		//Function for set all pins off
+		void setAllPinsOff();
 
 		//Constructor
 		SendSignalBeagle(int gpioPin);

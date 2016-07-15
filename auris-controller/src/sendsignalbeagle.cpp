@@ -78,5 +78,13 @@ void SendSignalBeagle::setPinOff(int gpioPin){
 	fclose(this->outPinFile);
 }
 
+//Set all pins off
+void SendSignalBeagle::setAllPinsOff(){
+	
+	for(int i=0; i < this->gpioPins.size(); i++){
+		setPinOff(this->gpioPins[i]);
+	}
+}
+
 //Destructor
 SendSignalBeagle::~SendSignalBeagle(){}
