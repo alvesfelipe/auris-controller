@@ -10,13 +10,18 @@ int main(int argc,char *argv[]){
 
 	if(argc == 2){
 		PlayAuris *pl = new PlayAuris();
+		SendSignalBeagle *ss = new SendSignalBeagle();
 		char const* tmp_home = getenv("HOME");
 		string home(tmp_home);
 		string name(argv[1]);
+		
+		if(name.compare("stop") == 0)
+			ss->setAllPinsOff();
 
-		cout << "------------>" << name << endl;
+		cout << "MUSIC ------------>" << name << endl;
 		pl->playAurisMelody(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/" + name + ".txt", 1);
-
+		
+		delete ss;
 		delete pl;
 		return 0;
 	}
