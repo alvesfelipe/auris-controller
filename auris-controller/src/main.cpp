@@ -15,12 +15,13 @@ int main(int argc,char *argv[]){
 		string home(tmp_home);
 		string name(argv[1]);
 		
-		if(name.compare("stop") == 0)
+		if(name.compare("off") == 0)
 			ss->setAllPinsOff();
+		if(name.compare("off") != 0){
+			cout << "MUSIC ------------>" << name << endl;
+			pl->playAurisMelody(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/" + name + ".txt", 1);
+		}
 
-		cout << "MUSIC ------------>" << name << endl;
-		pl->playAurisMelody(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/" + name + ".txt", 1);
-		
 		delete ss;
 		delete pl;
 		return 0;
