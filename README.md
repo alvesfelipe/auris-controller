@@ -20,15 +20,36 @@ MUSIC FOR DEAF uses a number of depenencies to work propetly:
 	* [JAMS]
 
 * [Boost.Filesystem library]
+
 ```sh
 $ sudo apt-get install libboost-filesystem-dev
 ```
 If you whant to play Auris midi in a haptics interface, you will need:
 * [wiringpi]
 
+### Necessary directories
+
+After install all dependencies, create in your home directory the project directory:
+
+```sh
+$ mkdir -p MUSIC_DEAF
+```
+
+Now, create the files directories. 
+
+```sh
+$ cd $(HOME)/MUSIC_DEAF && mkdir -p music_for_deaf_files/{audios/,auris_melodies/,midis/}
+```
+
 ### Complie and run Music For Deaf
 
-For compile and run Music For Deaf code run:
+For compile and run Music For Deaf code, first you need to clone the project:
+
+```sh
+$ git clone git@bitbucket.org:FelipeAlvesAraujo/music_for_deaf.git
+```
+
+now you type:
 
 ```sh
 $ cd $(HOME)/MUSIC_DEAF/music_for_deaf/auris-controller
