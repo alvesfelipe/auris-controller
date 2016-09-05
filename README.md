@@ -35,10 +35,16 @@ After install all dependencies, create in your home directory the project direct
 $ mkdir -p MUSIC_DEAF
 ```
 
-Now, create the files directories. 
+Create the codes directory:
 
 ```sh
-$ cd $(HOME)/MUSIC_DEAF && mkdir -p music_for_deaf_files/{audios/,auris_melodies/,midis/}
+$ cd $HOME/MUSIC_DEAF && mkdir -p music_for_deaf/{auris-controller/,auris-core/, auris-drivers/}
+```
+
+Now, create the files directories:
+
+```sh
+$ cd $HOME/MUSIC_DEAF && mkdir -p music_for_deaf_files/{audios/,auris_melodies/,midis/}
 ```
 
 ### Complie and run Music For Deaf
@@ -46,13 +52,24 @@ $ cd $(HOME)/MUSIC_DEAF && mkdir -p music_for_deaf_files/{audios/,auris_melodies
 For compile and run Music For Deaf code, first you need to clone the project:
 
 ```sh
-$ git clone git@bitbucket.org:FelipeAlvesAraujo/music_for_deaf.git
+$ cd $HOME/MUSIC_DEAF/music_for_deaf
+$ git clone git@gitlab.lavid.ufpb.br:auris/auris-controller.git
+```
+```sh
+cd $HOME/MUSIC_DEAF/music_for_deaf/auris-core
+$ git clone git@gitlab.lavid.ufpb.br:auris/auris-melody.git
+$ git clone git@gitlab.lavid.ufpb.br:auris/auris-stream.git
+$ git clone git@gitlab.lavid.ufpb.br:auris/auris-filter.git
+```
+```sh
+cd $HOME/MUSIC_DEAF/music_for_deaf/auris-drivers
+$ git clone git@gitlab.lavid.ufpb.br:auris/auris-bracelet.git
 ```
 
 now you type:
 
 ```sh
-$ cd $(HOME)/MUSIC_DEAF/music_for_deaf/auris-controller
+$ cd $HOME/MUSIC_DEAF/music_for_deaf/auris-controller
 ```
 ```sh
 $ make
