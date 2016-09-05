@@ -10,7 +10,7 @@ void SendSignalBeagle::setGpioPins(){
 	this->gpioPins.push_back(30); 
 	this->gpioPins.push_back(60);
 	this->gpioPins.push_back(31);
-	this->gpioPins.push_back(40);//problem with pin 14
+	this->gpioPins.push_back(04);//problem with pin 14(troquei 40 pelo 05)
 	this->gpioPins.push_back(48);
 	this->gpioPins.push_back(51);
 	this->gpioPins.push_back(04);
@@ -76,6 +76,14 @@ void SendSignalBeagle::setPinOff(int gpioPin){
 	}while(this->outPinFile == NULL);	
 	fwrite(this->gpioPinDirection, 1, sizeof(this->gpioPinDirection), this->outPinFile);
 	fclose(this->outPinFile);
+}
+
+//Set all pins off
+void SendSignalBeagle::setAllPinsOff(){
+	this->setGpioPins();
+	for(int i=0; i < this->gpioPins.size(); i++){
+		this->setPinOff(this->gpioPins[i]);
+	}
 }
 
 //Destructor
