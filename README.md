@@ -38,7 +38,7 @@ $ mkdir -p MUSIC_DEAF
 Create the codes directory:
 
 ```sh
-$ cd $HOME/MUSIC_DEAF && mkdir -p music_for_deaf/{auris-controller/,auris-core/, auris-drivers/}
+$ cd $HOME/MUSIC_DEAF && mkdir -p music_for_deaf/{auris-controller/,auris-core/,auris-drivers/}
 ```
 
 Now, create the files directories:
