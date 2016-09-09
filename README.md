@@ -57,7 +57,7 @@ $ git clone git@gitlab.lavid.ufpb.br:auris/auris-controller.git
 ```
 ```sh
 cd $HOME/MUSIC_DEAF/music_for_deaf/auris-core
-$ git clone git@gitlab.lavid.ufpb.br:auris/auris-melody.git
+$ git clone git@gitlab.lavid.ufpb.br:auris/midi-melody-generator.git
 $ git clone git@gitlab.lavid.ufpb.br:auris/auris-stream.git
 $ git clone git@gitlab.lavid.ufpb.br:auris/auris-filter.git
 ```
