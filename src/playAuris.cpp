@@ -4,16 +4,16 @@ PlayAuris::PlayAuris(){}
 
 void PlayAuris::sendSignalRasp(string information, int id_pin){
 
-	char send[100], d;
-	memcpy(&send, information.c_str(), 100);
+	// char send[100], d;
+	// memcpy(&send, information.c_str(), 100);
 
-	cout << "send: " << send << endl;
-	serialPuts(id_pin, send);
+	// cout << "send: " << send << endl;
+	// serialPuts(id_pin, send);
 
-	do{
-		d = serialGetchar(id_pin);
-		printf("%c",d);
-	}while(d != '\n');
+	// do{
+	// 	d = serialGetchar(id_pin);
+	// 	printf("%c",d);
+	// }while(d != '\n');
 }
 
 void PlayAuris::sendSignalBeagle(int id, int duration){

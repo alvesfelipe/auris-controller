@@ -4,8 +4,6 @@
 #include <iostream>
 #include <sstream>
 #include <stdio.h>
-#include <wiringSerial.h>
-#include <wiringPi.h>
 #include <string.h>
 #include <errno.h>
 #include <stdlib.h>
