@@ -11,16 +11,19 @@ int main(int argc,char *argv[]){
 	if(argc == 3){
 		string artefact(argv[1]);
 		string name(argv[2]);
-		char const* tmp_home = getenv("HOME");
-		string home(tmp_home);
+		char const* auris_aux_files = getenv("AURIS_FILES");
+		string auris_files(auris_aux_files);
+
+		char const* auris_aux_home = getenv("AURIS_HOME_PATH");
+		string auris_home(auris_aux_home);
 		
 		if(artefact.compare("midiMelody") == 0){
 			cout << "Generating midiMelody" << endl;
 			
 			MidiMelody *md = new MidiMelody();
 
-			md->melodyGenerator(name, home + "/MUSIC_DEAF/music_for_deaf_files/audios/" + name + ".wav",
-			home + "/MUSIC_DEAF/music_for_deaf_files/midis/");
+			md->melodyGenerator(name, auris_files + "/audios/" + name + ".wav",
+			auris_files + "/midis/");
 
 			delete md;
 			return 0;
@@ -32,9 +35,9 @@ int main(int argc,char *argv[]){
 			AurisStream *as = new AurisStream();
 			MidiToNotes *mtn = new MidiToNotes();
 
-			mtn->midiNotes(name, home + "/MUSIC_DEAF/music_for_deaf_files/midis/" + name + ".mid", "/tmp/");
-			as->streamAurisGenerate(name, home + "/MUSIC_DEAF/music_for_deaf/auris-core/auris-stream/file/configure.txt",
-						   		 "/tmp/" + name + ".txt", 0, home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/");
+			mtn->midiNotes(name, auris_files + "/midis/" + name + ".mid", "/tmp/");
+			as->streamAurisGenerate(name, auris_home + "/auris-core/auris-stream/file/configure.txt",
+						   		 "/tmp/" + name + ".txt", 0, auris_files + "/auris_melodies/");
 
 			delete as;
 			delete mtn;
@@ -51,7 +54,7 @@ int main(int argc,char *argv[]){
 				ss->setAllPinsOff();
 			if(name.compare("off") != 0){
 				cout << "MUSIC ------------>" << name << endl;
-				pl->playAurisMelody(home + "/MUSIC_DEAF/music_for_deaf_files/auris_melodies/" + name + ".txt", 1);
+				pl->playAurisMelody(auris_files + "/auris_melodies/" + name + ".txt", 1);
 			}
 
 			delete ss;
